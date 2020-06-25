@@ -26,4 +26,17 @@ class StringPlatformTest {
                 ()->assertThrows(IllegalArgumentException.class,()->platform.getSubString("sampleString",5,2))
                 );
     }
+
+    @Test
+    void testPalindrome(){
+        assertAll(
+                ()->assertEquals(true, platform.isPalindrome("madam"), "Madam is Palindrome"),
+                ()->assertEquals(true, platform.isPalindrome("mam"), "mam is Palindrome"),
+                ()->assertEquals(false, platform.isPalindrome("ma"), "ma not Palindrome"),
+                ()->assertEquals(false, platform.isPalindrome("Andaman"),"Andaman is not Palindrome"),
+                ()->assertEquals(true, platform.isPalindrome("Dhakaakahd"),"Dhakaakahd is Palindrome"),
+                ()->assertEquals(true, platform.isPalindrome("a"),"Single character is Palindrome"),
+                ()->assertThrows(IllegalArgumentException.class,()-> platform.isPalindrome("")),
+                ()->assertThrows(IllegalArgumentException.class,()-> platform.isPalindrome(null)));
+    }
 }
