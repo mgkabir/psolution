@@ -39,9 +39,9 @@ class AnagramTest {
     }
 
     @Test
-    @Disabled
+    //@Disabled
     void testTimeOut(){
-        assertTimeout(Duration.ofSeconds(1),()->anagram.delaySecond(2));
+        assertTimeout(Duration.ofSeconds(3),()->anagram.delaySecond(2));
     }
 
     @Nested
