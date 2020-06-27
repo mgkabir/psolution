@@ -16,7 +16,6 @@ public class StringPlatform {
 
         int midPoint = (strLength / 2) + 1;
         for (int pos = 0; pos < midPoint; pos++) {
-            System.out.println(inputStr.charAt(pos));
             if (inputStr.charAt(pos) != inputStr.charAt(strLength - pos - 1)) return false;
         }
         return true;
