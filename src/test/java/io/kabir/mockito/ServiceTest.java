@@ -23,9 +23,12 @@ class ServiceTest {
     Service service = null;
 
 
+
+
     @Test
     void getLongNames() {
-        Mockito.when(repository.getAllNames()).thenReturn(Arrays.asList("Sylvester","John","Van Damn","Joe"));
+       // Mockito.when(repository.getAllNames()).thenReturn(Arrays.asList("Sylvester","John","Van Damn","Joe")); // same
+        Mockito.doReturn(Arrays.asList("Sylvester","John","Van Damn","Joe")).when(repository).getAllNames(); // same
         /* actual method getAllNames() of repository is not being called for this test.
         We are testing getLongNames() method's logic here. For this purpose mocking the calls to repository */
         assertEquals(2,service.getLongNames().size(),"There should be only 2 Long names");
