@@ -43,4 +43,27 @@ public class Playground {
         Arrays.sort(nums);
         return nums;
     }
+
+    /**
+     * Given a fixed length array nums of integers, duplicate each occurrence of zero,
+     * shifting the remaining elements to the right.
+     *
+     * @param nums
+     * @return
+     */
+    public int[] duplicateZeros(int[] nums) {
+
+        for (int idxOut = 0; idxOut < nums.length; idxOut++) {
+            if (nums[idxOut] == 0) {
+                for (int idxIn = nums.length - 1; idxIn > idxOut + 1; idxIn--) {
+                    nums[idxIn] = nums[idxIn - 1];
+                }
+                if (idxOut < nums.length - 1) {
+                    nums[idxOut + 1] = 0;
+                    idxOut++;
+                }
+            }
+        }
+        return nums;
+    }
 }

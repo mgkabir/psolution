@@ -26,4 +26,16 @@ class PlaygroundTest {
         int[] expectedOutput = {0, 1, 9, 16, 100};
         assertArrayEquals(expectedOutput, playground.squredSortedArray(input));
     }
+
+    @Test
+    void testDuplicateZero() {
+        int[] inputArr1 = {4, 1, 0, 3, 10};
+        int[] outputArr1 = {4, 1, 0, 0, 3};
+
+        int[] inputArr2 = {4, 1, 0, 3, 0, 10, 20, 5};
+        int[] outputArr2 = {4, 1, 0, 0, 3, 0, 0, 10};
+
+        assertArrayEquals(outputArr1, playground.duplicateZeros(inputArr1));
+        assertArrayEquals(outputArr2, playground.duplicateZeros(inputArr2));
+    }
 }
