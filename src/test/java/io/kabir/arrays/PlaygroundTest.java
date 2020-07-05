@@ -38,4 +38,19 @@ class PlaygroundTest {
         assertArrayEquals(outputArr1, playground.duplicateZeros(inputArr1));
         assertArrayEquals(outputArr2, playground.duplicateZeros(inputArr2));
     }
+
+    @Test
+    void testMergeSort() {
+        int[] nums1 = {5, 8, 9};
+        int[] nums2 = {2, 7, 10, 12};
+        int[] expected = {2, 5, 7, 8, 9, 10, 12};
+
+        assertArrayEquals(expected, playground.mergeSort(nums1, nums2));
+
+        int[] arr1 = {5, 8, 9, 13};
+        int[] arr2 = {2, 7, 10, 12, 13, 15};
+        int[] out = {2, 5, 7, 8, 9, 10, 12, 13, 13, 15};
+
+        assertArrayEquals(out, playground.mergeSort(arr1, arr2));
+    }
 }

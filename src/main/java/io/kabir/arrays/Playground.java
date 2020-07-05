@@ -66,4 +66,38 @@ public class Playground {
         }
         return nums;
     }
+
+    /**
+     * Sorted array is returned by merging given two arrays
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] mergeSort(int[] nums1, int[] nums2) {
+        int[] result = new int[nums1.length + nums2.length];
+
+        int i1 = 0, i2 = 0, k = 0;
+        for (; i1 < nums1.length && i2 < nums2.length; k++) {
+            if (nums1[i1] < nums2[i2]) {
+                result[k] = nums1[i1];
+                i1++;
+            } else {
+                result[k] = nums2[i2];
+                i2++;
+            }
+        }
+
+        if (i1 < nums1.length) {
+            for (; i1 < nums1.length; i1++, k++) {
+                result[k] = nums1[i1];
+            }
+        }
+
+        if (i2 < nums2.length) {
+            for (; i2 < nums2.length; i2++, k++) {
+                result[k] = nums2[i2];
+            }
+        }
+        return result;
+    }
 }
