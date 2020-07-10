@@ -69,6 +69,7 @@ public class Playground {
 
     /**
      * Sorted array is returned by merging given two arrays
+     *
      * @param nums1
      * @param nums2
      * @return
@@ -99,5 +100,28 @@ public class Playground {
             }
         }
         return result;
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null) throw new IllegalArgumentException("Should not be Null");
+        if (strs.length == 1) return strs[0];
+        if (strs.length == 0) return "";
+        StringBuilder cPrefix = new StringBuilder();
+        int minLength = strs[0].trim().length();
+        for (String str : strs) {
+            if (str.trim().isEmpty()) return "";
+            int strLen = str.trim().length();
+            minLength = (strLen < minLength) ? strLen : minLength;
+        }
+
+        for (int idx = 0; idx < minLength; idx++) {
+            int i;
+            for (i = 0; i < strs.length - 1; i++) {
+                if (strs[i].charAt(idx) != strs[i + 1].charAt(idx)) return cPrefix.toString();
+            }
+            cPrefix.append(strs[i].charAt(idx));
+        }
+
+        return cPrefix.toString();
     }
 }

@@ -53,4 +53,22 @@ class PlaygroundTest {
 
         assertArrayEquals(out, playground.mergeSort(arr1, arr2));
     }
+
+    @Test
+    void testLongestCommonPrifix() {
+        String[] strs = {"flower", "flow", "floride"};
+        String[] strs2 = {"abca", "abc"};
+        String[] arrWithEmptyStr = {"flower", "", "floride"};
+        String[] emptyStrs = {};
+        String[] oneStr = {"single"};
+        String[] singleCharStrs = {"c","c"};
+        assertEquals("", playground.longestCommonPrefix(emptyStrs));
+        assertEquals(oneStr[0], playground.longestCommonPrefix(oneStr));
+        assertEquals("", playground.longestCommonPrefix(arrWithEmptyStr));
+        assertThrows(IllegalArgumentException.class, () -> playground.longestCommonPrefix(null));
+        assertEquals("flo", playground.longestCommonPrefix(strs));
+        assertEquals("c", playground.longestCommonPrefix(singleCharStrs));
+        assertEquals("abc", playground.longestCommonPrefix(strs2));
+
+    }
 }

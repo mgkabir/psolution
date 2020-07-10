@@ -30,9 +30,7 @@ public class MathUtils {
     }
 
     private int getGCD(int num1, int num2) {
-        System.out.println("num1 : " + num1 + " num2 : " + num2);
         if (num2 == 0) {
-            System.out.println(" == returning == " + num1);
             return num1;
         }
         return getGCD(num2, num1 % num2);
