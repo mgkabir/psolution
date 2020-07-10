@@ -42,4 +42,22 @@ class MathUtilsTest {
         assertThrows(IllegalArgumentException.class,()->mUtils.gcd(numArray0));
         assertThrows(IllegalArgumentException.class,()->mUtils.gcd(numArrayWith0));
     }
+
+    @Test
+    void getTwoSum(){
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = {0,1};
+
+        assertArrayEquals(result, mUtils.twoSum(nums,target));
+     }
+
+    @Test
+    void getTwoSumSmallArray(){
+        int[] nums = {3,3};
+        int target = 6;
+        int[] result = {0,1};
+
+        assertArrayEquals(result, mUtils.twoSum(nums,target));
+    }
 }

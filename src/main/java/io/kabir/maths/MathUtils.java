@@ -1,5 +1,6 @@
 package io.kabir.maths;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class MathUtils {
@@ -35,5 +36,21 @@ public class MathUtils {
             return num1;
         }
         return getGCD(num2, num1 % num2);
+    }
+
+    public int[] twoSum(int[] nums, int target){
+        int[] result = new int[2];
+
+        for (int idxOut = 0; idxOut < nums.length; idxOut++) {
+            for (int idxIn = idxOut + 1; idxIn < nums.length; idxIn++) {
+                if(nums[idxOut] + nums[idxIn] == target){
+                    result[0] = idxOut;
+                    result[1] = idxIn;
+                    break;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(result));
+        return result;
     }
 }
