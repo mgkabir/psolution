@@ -1,6 +1,10 @@
 package io.kabir.maths;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class MathUtils {
@@ -36,12 +40,12 @@ public class MathUtils {
         return getGCD(num2, num1 % num2);
     }
 
-    public int[] twoSum(int[] nums, int target){
+    public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
 
         for (int idxOut = 0; idxOut < nums.length; idxOut++) {
             for (int idxIn = idxOut + 1; idxIn < nums.length; idxIn++) {
-                if(nums[idxOut] + nums[idxIn] == target){
+                if (nums[idxOut] + nums[idxIn] == target) {
                     result[0] = idxOut;
                     result[1] = idxIn;
                     break;
@@ -50,5 +54,26 @@ public class MathUtils {
         }
         System.out.println(Arrays.toString(result));
         return result;
+    }
+
+
+    public double myPow(double x, int n) {
+        if (x == 0) return 0;
+        if (n == 0) return 1;
+
+        int absN = Math.abs(n);
+        double result = 1;
+
+        for (int i = 1; i <= absN; i++) {
+            result = result * x;
+        }
+
+        if (n < 0) {
+            result = 1 / result;
+        }
+
+        String formattedResult = new DecimalFormat("#.#####").format(result);
+
+        return Double.valueOf(formattedResult);
     }
 }
