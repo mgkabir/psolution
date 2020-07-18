@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 public class MathUtils {
 
+
     public int add(int a, int b) {
         return a + b;
     }
@@ -56,8 +57,9 @@ public class MathUtils {
         return result;
     }
 
+    private final DecimalFormat df = new DecimalFormat("#.#####");
 
-    public double myPow(double x, int n) {
+    public double myPow1(double x, int n) {
         if (x == 0) return 0;
         if (n == 0) return 1;
 
@@ -72,8 +74,18 @@ public class MathUtils {
             result = 1 / result;
         }
 
-        String formattedResult = new DecimalFormat("#.#####").format(result);
+        String formattedResult = df.format(result);
 
         return Double.valueOf(formattedResult);
+    }
+
+    public double myPow(double x, int n) {
+        if (n < 0) {
+            x = 1 / x;
+        }
+        double ans = 1;
+        for (long i = 0; i < Math.abs(n); i++)
+            ans = ans * x;
+        return ans;
     }
 }

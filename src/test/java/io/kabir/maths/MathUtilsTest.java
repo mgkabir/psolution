@@ -62,6 +62,7 @@ class MathUtilsTest {
         assertArrayEquals(result, mUtils.twoSum(nums, target));
     }
 
+
     @Test
     void testMyPow() {
         assertAll(
@@ -71,7 +72,11 @@ class MathUtilsTest {
                 () -> assertEquals(27, mUtils.myPow(3, 3)),
                 () -> assertEquals(1024.00, mUtils.myPow(2.0, 10)),
                 () -> assertEquals(0.25, mUtils.myPow(2, -2)),
-                () -> assertEquals(9.26100, mUtils.myPow(2.1, 3))
+                () -> assertEquals(9.26100, mUtils.myPow(2.1, 3),0.00001),
+                () -> assertEquals(Math.pow(0.00001,2147483647), mUtils.myPow(0.00001, 2147483647)),
+                () -> assertEquals(Math.pow(-2.00001,2), mUtils.myPow(-2.00001,2), 0.00001),
+                () -> assertEquals(Math.pow(-2,2), mUtils.myPow(-2,2)),
+                () -> assertEquals(Math.pow(-2,3), mUtils.myPow(-2,3))
         );
     }
 }
