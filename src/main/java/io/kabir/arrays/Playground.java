@@ -1,6 +1,7 @@
 package io.kabir.arrays;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Playground {
 
@@ -124,4 +125,51 @@ public class Playground {
 
         return cPrefix.toString();
     }
+
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> numFreqMap = new HashMap<>();
+        for (int num : nums) {
+            numFreqMap.put(num, numFreqMap.getOrDefault(num, 0) + 1);
+        }
+        List<Integer> r = new ArrayList<>();
+
+        numFreqMap
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .limit(k)
+                .collect(Collectors.toList()).forEach(e -> {
+            r.add(e.getValue());
+        });
+
+        int[] result = new int[k];
+        int idx = 0;
+
+        Iterator<Integer> iterator = r.iterator();
+        while (iterator.hasNext()) {
+            result[idx++] = iterator.next();
+        }
+        return result;
+    }
+
+    public int missingNumber(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (!isExist(nums, i)) return i;
+        }
+        return 0;
+    }
+
+    private boolean isExist(int[] nums, int element) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == element) return true;
+        }
+        return false;
+    }
 }
+
+
+
+
+
+
+

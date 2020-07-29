@@ -1,6 +1,7 @@
 package io.kabir.arrays;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,7 +62,7 @@ class PlaygroundTest {
         String[] arrWithEmptyStr = {"flower", "", "floride"};
         String[] emptyStrs = {};
         String[] oneStr = {"single"};
-        String[] singleCharStrs = {"c","c"};
+        String[] singleCharStrs = {"c", "c"};
         assertEquals("", playground.longestCommonPrefix(emptyStrs));
         assertEquals(oneStr[0], playground.longestCommonPrefix(oneStr));
         assertEquals("", playground.longestCommonPrefix(arrWithEmptyStr));
@@ -70,5 +71,23 @@ class PlaygroundTest {
         assertEquals("c", playground.longestCommonPrefix(singleCharStrs));
         assertEquals("abc", playground.longestCommonPrefix(strs2));
 
+    }
+
+    @Test
+    void testTopKFrequent() {
+        int[] input1 = {1, 1, 1, 2, 2, 3};
+        int k1 = 2;
+        int[] output1 = {1, 2};
+        assertArrayEquals(output1, playground.topKFrequent(input1, k1));
+    }
+
+    @Test
+    @DisplayName("Missing Number in Array")
+    void testMissingNumber() {
+        int[] input1 = {3, 0, 1};
+        int[] input2 = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+
+        assertEquals(2, playground.missingNumber(input1));
+        assertEquals(8, playground.missingNumber(input2));
     }
 }
