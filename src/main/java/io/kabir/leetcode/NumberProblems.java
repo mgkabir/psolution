@@ -3,6 +3,30 @@ package io.kabir.leetcode;
 import java.util.*;
 
 public class NumberProblems {
+    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    PairInt IDsOfmovies(int flightDuration, int numMovies, ArrayList<Integer> movieDuration) {
+
+        Set<PairInt> rSet = new HashSet<>();
+        movieDuration.forEach(dOut -> {
+            movieDuration.forEach(dIn -> {
+                if (dOut + dIn == flightDuration - 30) {
+                    rSet.add(new PairInt(movieDuration.indexOf(dOut), movieDuration.indexOf(dIn)));
+                }
+            });
+        });
+
+        if (rSet.isEmpty()) return new PairInt(-1, -1);
+
+        if(rSet.size() == 1 ) return rSet.iterator().next();
+
+        PairInt longest = null;
+
+        Iterator<PairInt> it = rSet.iterator();
+
+        return rSet.iterator().next();
+    }
+
+
     public List<List<Integer>> threeSum(int[] nums) {
 
         Set<List<Integer>> rSet = new HashSet<>();
@@ -37,5 +61,17 @@ public class NumberProblems {
         r.addAll(Arrays.asList(nums[result[0]], nums[result[1]]));
 
         return r;
+    }
+}
+
+class PairInt {
+    int first, second;
+
+    PairInt() {
+    }
+
+    public PairInt(int first, int second) {
+        this.first = first;
+        this.second = second;
     }
 }
