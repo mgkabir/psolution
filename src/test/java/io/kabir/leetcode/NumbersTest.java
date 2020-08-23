@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NumbersTest {
     Numbers numbers;
+
     @BeforeEach
     void setUp() {
         numbers = new Numbers();
@@ -21,13 +22,26 @@ class NumbersTest {
     @Test
     void reverse() {
         assertAll(
-                ()->assertEquals(326, numbers.reverse(623)),
-                ()->assertEquals(-793674, numbers.reverse(-476397)),
-                ()->assertEquals(987654321, numbers.reverse(123456789)),
-                ()->assertEquals(0, numbers.reverse(-1923456789)),
-                ()->assertEquals(21, numbers.reverse(120)),
-                ()->assertEquals(1, numbers.reverse(1)),
-                ()->assertEquals(0, numbers.reverse(1534236469))
+                () -> assertEquals(326, numbers.reverse(623)),
+                () -> assertEquals(-793674, numbers.reverse(-476397)),
+                () -> assertEquals(987654321, numbers.reverse(123456789)),
+                () -> assertEquals(0, numbers.reverse(-1923456789)),
+                () -> assertEquals(21, numbers.reverse(120)),
+                () -> assertEquals(1, numbers.reverse(1)),
+                () -> assertEquals(0, numbers.reverse(1534236469))
         );
+    }
+
+    @Test
+    void romanToInteger() {
+
+        assertAll(
+                () -> assertEquals(3, numbers.romanToInt("III")),
+                () -> assertEquals(9, numbers.romanToInt("IX")),
+                () -> assertEquals(4, numbers.romanToInt("IV")),
+                () -> assertEquals(58, numbers.romanToInt("LVIII")),
+                () -> assertEquals(1994, numbers.romanToInt("MCMXCIV"))
+        );
+
     }
 }
